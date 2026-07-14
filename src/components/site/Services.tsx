@@ -5,7 +5,7 @@ const packages = [
   {
     tier: "Starter",
     tagline: "Get Online",
-    price: "₹6,000 – 10,000",
+    price: "₹8,000 – 10,000",
     popular: false,
     features: [
       "5 professional pages",
