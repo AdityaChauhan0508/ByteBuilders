@@ -113,7 +113,7 @@ export function Services() {
 
         <p className="mx-auto mt-10 max-w-2xl rounded-2xl bg-muted p-5 text-center text-sm text-muted-foreground">
           Plus optional <span className="font-semibold text-foreground">Care Plans</span>{" "}
-          starting at ₹500/month to keep your site updated, secure, and growing.
+          starting at ₹299/month to keep your site updated, secure, and growing.
         </p>
       </div>
     </section>
