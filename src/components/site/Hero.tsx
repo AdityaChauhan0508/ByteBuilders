@@ -57,7 +57,7 @@ export function Hero() {
               <dd className="text-xs text-muted-foreground">Fastest launch</dd>
             </div>
             <div>
-              <dt className="text-2xl font-bold text-brand">₹6k+</dt>
+              <dt className="text-2xl font-bold text-brand">₹10k+</dt>
               <dd className="text-xs text-muted-foreground">Starter pricing</dd>
             </div>
             <div>

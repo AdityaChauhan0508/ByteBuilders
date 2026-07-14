@@ -5,7 +5,7 @@ const packages = [
   {
     tier: "Starter",
     tagline: "Get Online",
-    price: "₹8,000 – 10,000",
+    price: "₹9,999",
     popular: false,
     features: [
       "5 professional pages",
@@ -18,7 +18,7 @@ const packages = [
   {
     tier: "Standard",
     tagline: "Get Leads",
-    price: "₹15,000 – 25,000",
+    price: "₹19,999",
     popular: true,
     features: [
       "10 professional pages",
@@ -32,7 +32,7 @@ const packages = [
   {
     tier: "Pro",
     tagline: "Get Found & Grow",
-    price: "₹30,000 – 50,000",
+    price: "₹35,999",
     popular: false,
     features: [
       "Everything in Standard",
