@@ -39,8 +39,15 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#top" className="font-display text-xl font-bold tracking-tight text-brand">
-          Byte<span className="text-emerald-brand">Builders</span>
+        <a href="#top" className="flex items-center gap-3 font-display text-xl font-bold tracking-tight text-brand">
+          <img
+            src="/brand-logo.svg"
+            alt="ByteBuilders logo"
+            className="h-9 w-9 shrink-0 object-contain"
+          />
+          <span className="leading-none">
+            Byte<span className="text-emerald-brand">Builders</span>
+          </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

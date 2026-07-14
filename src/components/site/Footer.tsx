@@ -7,9 +7,16 @@ export function Footer() {
     <footer className="bg-surface-dark text-white/80">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-2">
-          <p className="font-display text-2xl font-bold text-white">
-            Byte<span className="text-emerald-brand">Builders</span>
-          </p>
+          <div className="flex items-center gap-3">
+            <img
+              src="/brand-logo.svg"
+              alt="ByteBuilders logo"
+              className="h-11 w-11 shrink-0 object-contain"
+            />
+            <p className="font-display text-2xl font-bold text-white">
+              Byte<span className="text-emerald-brand">Builders</span>
+            </p>
+          </div>
           <p className="mt-3 max-w-sm text-sm text-white/60">
             Websites and local SEO for small businesses that want to grow — simply,
             honestly, and beautifully.
@@ -45,10 +52,10 @@ export function Footer() {
           </h4>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-emerald-brand" /> +91 99999 99999
+              <Phone className="h-4 w-4 text-emerald-brand" /> +91 9873316546
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-emerald-brand" /> hello@bytebuilders.in
+              <Mail className="h-4 w-4 text-emerald-brand" /> adityachauhan0520@gmail.com
             </li>
             <li>
               <a
