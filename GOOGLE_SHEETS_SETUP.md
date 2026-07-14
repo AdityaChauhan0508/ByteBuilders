@@ -20,7 +20,7 @@ In Pabbly, create a workflow with these steps:
 1. Trigger: `Webhook`
 2. Copy the webhook URL Pabbly gives you
 3. Action: `Google Sheets > Add New Row`
-4. Map the incoming fields to your sheet columns
+4. Map `business` or `businessName` to the `Business Name` column
 5. Turn the workflow on
 
 ## Payload sent by the form
@@ -31,6 +31,8 @@ The form sends this JSON payload to Pabbly:
 {
   "name": "Priya Sharma",
   "business": "Bloom Hair Studio",
+  "businessName": "Bloom Hair Studio",
+  "business_name": "Bloom Hair Studio",
   "phone": "+91 98xxxxxx",
   "message": "Tell us about your business...",
   "source": "https://your-site-url.com",

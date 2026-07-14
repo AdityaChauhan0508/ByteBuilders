@@ -27,6 +27,8 @@ export function Contact() {
     const payload = {
       name: String(formData.get("name") ?? ""),
       business: String(formData.get("business") ?? ""),
+      businessName: String(formData.get("business") ?? ""),
+      business_name: String(formData.get("business") ?? ""),
       phone: String(formData.get("phone") ?? ""),
       message: String(formData.get("message") ?? ""),
       source: window.location.href,
