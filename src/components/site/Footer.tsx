@@ -52,7 +52,7 @@ export function Footer() {
           </h4>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-emerald-brand" /> +91 9873316546
+              <Phone className="h-4 w-4 text-emerald-brand" /> +91 8368818668
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-emerald-brand" /> adityachauhan0520@gmail.com
