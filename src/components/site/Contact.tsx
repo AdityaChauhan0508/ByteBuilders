@@ -3,12 +3,52 @@ import { Send } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
+const PABBLY_WEBHOOK_URL = import.meta.env.VITE_PABBLY_WEBHOOK_URL ?? "";
+
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSent(true);
+
+    if (!PABBLY_WEBHOOK_URL) {
+      setError("Form submission is not configured yet.");
+      return;
+    }
+
+    setSubmitting(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: String(formData.get("name") ?? ""),
+      business: String(formData.get("business") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      message: String(formData.get("message") ?? ""),
+      source: window.location.href,
+      submittedAt: new Date().toISOString(),
+    };
+
+    try {
+      await fetch(PABBLY_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      form.reset();
+      setSent(true);
+    } catch {
+      setError("Something went wrong. Please try again or use WhatsApp.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -42,7 +82,7 @@ export function Contact() {
           className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur sm:p-8"
         >
           {sent ? (
-            <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
+            <div className="flex min-h-80 flex-col items-center justify-center text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-brand text-emerald-brand-foreground">
                 <Send className="h-6 w-6" />
               </div>
@@ -53,8 +93,10 @@ export function Contact() {
             </div>
           ) : (
             <div className="space-y-4">
-              <Field label="Your Name" name="name" placeholder="Priya Sharma" />
-              <Field label="Business Name" name="business" placeholder="Bloom Hair Studio" />
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field label="Your Name" name="name" placeholder="Priya Sharma" />
+                <Field label="Business Name" name="business" placeholder="Bloom Hair Studio" />
+              </div>
               <Field label="Phone" name="phone" type="tel" placeholder="+91 98xxxxxx" />
               <div>
                 <label className="mb-1.5 block text-sm font-medium text-white/80">
@@ -64,14 +106,17 @@ export function Contact() {
                   name="message"
                   rows={4}
                   placeholder="Tell us about your business…"
+                  required
                   className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-emerald-brand focus:outline-none focus:ring-2 focus:ring-emerald-brand/40"
                 />
               </div>
+              {error ? <p className="text-sm text-red-300">{error}</p> : null}
               <button
                 type="submit"
+                disabled={submitting}
                 className="btn-cta inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-base font-semibold"
               >
-                Send Enquiry
+                {submitting ? "Sending..." : "Send Enquiry"}
                 <Send className="h-4 w-4" />
               </button>
             </div>
